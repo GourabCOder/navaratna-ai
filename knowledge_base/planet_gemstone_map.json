@@ -1,0 +1,27 @@
+{
+    "zodiac_planet_mapping": {
+        "Leo": "Sun",
+        "Cancer": "Moon",
+        "Aries": "Mars",
+        "Scorpio": "Mars",
+        "Gemini": "Mercury",
+        "Virgo": "Mercury",
+        "Sagittarius": "Jupiter",
+        "Pisces": "Jupiter",
+        "Taurus": "Venus",
+        "Libra": "Venus",
+        "Capricorn": "Saturn",
+        "Aquarius": "Saturn"
+    },
+    "planet_gemstone_mapping": {
+        "Sun": "Ruby",
+        "Moon": "Pearl",
+        "Mars": "Red Coral",
+        "Mercury": "Emerald",
+        "Jupiter": "Yellow Sapphire",
+        "Venus": "Diamond",
+        "Saturn": "Blue Sapphire",
+        "Rahu": "Hessonite",
+        "Ketu": "Cat's Eye"
+    }
+}

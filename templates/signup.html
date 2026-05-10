@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navaratna | Create Account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .auth-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+        .auth-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .auth-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+        .input-group input {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 15px;
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus {
+            border-color: var(--text-gold);
+        }
+        .auth-submit-btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .auth-link {
+            margin-top: 25px;
+            display: block;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .auth-link:hover {
+            color: var(--text-gold);
+        }
+        .flash-msg {
+            color: var(--accent-red);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="fixed-header">
+        <a href="{{ url_for('index') }}" style="text-decoration:none; display:flex;" class="header-left">
+            <div class="logo"><img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo" style="height: 30px; width: auto;"></div>
+            <div class="brand-name">Navaratna</div>
+        </a>
+    </header>
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2 class="auth-title">Create Account</h2>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-msg">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('signup') }}" method="POST">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required placeholder="Create a password">
+                </div>
+                
+                <button type="submit" class="btn buy-now-btn auth-submit-btn">Sign Up</button>
+            </form>
+            
+            <a href="{{ url_for('login') }}" class="auth-link">Already have an account? Sign In</a>
+        </div>
+    </div>
+
+</body>
+</html>
